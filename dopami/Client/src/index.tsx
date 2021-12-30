@@ -5,9 +5,11 @@ import App from './app'
 import './index.css'
 
 
-const title = 'world'
+const title = 'Click'
+
+const numbers = [1, 2, 4, 8, 16]
 
 ReactDOM.render(
-    <App title={title} />,
+    <App title={title} items={numbers} />,
     document.getElementById('app')
 );
