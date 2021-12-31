@@ -8,20 +8,20 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.jsx?$/,
+                test: /\.(js|jsx)$/,
                 use: [
                     {
                         loader: 'babel-loader',
                         options: {
                             presets: ['@babel/preset-env', '@babel/preset-react', '@babel/preset-typescript'],
-                            /*plugins: [
+                            plugins: [
                                 ['prismjs', {
-                                    'languages': ['all'],
-                                    'plugins': ['autoloader'],
-                                    'theme': 'tomorrow', // tomorrow, try twilight later + custom themes
+                                    'languages': ['c', 'cpp'],
+                                    'plugins': [], //['autoloader'],
+                                    'theme': 'twilight', // tomorrow, try twilight later + custom themes
                                     'css': true,
                                 }],
-                            ],*/
+                            ],
                         },
                     },
                 ],
