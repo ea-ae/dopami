@@ -3,15 +3,17 @@
     purge: {
         content: ['./src/*.{html,js,jsx,ts,tsx}'], // /dist/
         options: {
-            safelist: ['m-4']
+            safelist: []
         }
     },
     theme: {
         extend: {},
         fontFamily: {
-            'lsans': 'Lora, Times, serif',
-            'pdsans': 'Playfair Display, Times, serif',
-            'ssans': 'Source Serif Pro, Times, serif'
+            'source-code': 'Source Code Pro, monospace',
+            'source-sans': 'Source Sans Pro, sans-serif',
+            'roboto': 'Roboto, sans-serif',
+            'roboto-mono': 'Roboto Mono, monospace',
+            'open-sans': 'Open Sans, sans-serif',
         },
     },
     plugins: [],

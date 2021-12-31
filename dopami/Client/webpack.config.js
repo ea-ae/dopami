@@ -1,4 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
 
 module.exports = {
@@ -12,10 +13,14 @@ module.exports = {
                     {
                         loader: 'babel-loader',
                         options: {
-                            presets: [
-                                '@babel/preset-env',
-                                '@babel/preset-react',
-                                '@babel/preset-typescript',
+                            presets: ['@babel/preset-env', '@babel/preset-react', '@babel/preset-typescript'],
+                            plugins: [
+                                ['prismjs', {
+                                    'languages': ['all'],
+                                    'plugins': ['autoloader'],
+                                    'theme': 'tomorrow', // prism-tomorrow, try twilight later + custom themes
+                                    'css': true,
+                                }],
                             ],
                         },
                     },
@@ -23,16 +28,19 @@ module.exports = {
             },
             {
                 test: /\.tsx?$/,
-                use: [
-                    {
-                        loader: 'ts-loader'
-                    }
-                ],
+                use: ['ts-loader'],
             },
             {
                 test:/\.css$/,
-                include: path.resolve(__dirname, 'src'),
-                use: ['style-loader', 'css-loader', 'postcss-loader'],
+                include: [path.resolve(__dirname, 'src'), path.resolve(__dirname, 'node_modules/prismjs')],
+                use: [
+                    'style-loader',
+                    {
+                        loader: MiniCssExtractPlugin.loader,
+                        options: { esModule: false } // this fixes a weird bug
+                    },
+                    'css-loader',
+                    'postcss-loader'],
             },
         ]
     },
@@ -47,6 +55,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: 'src/index.html',
         }),
+        new MiniCssExtractPlugin(),
     ],
     devServer: {
         hot: true,
