@@ -5,6 +5,9 @@
     <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
     <TypeScriptToolsVersion>Latest</TypeScriptToolsVersion>
     <IsPackable>false</IsPackable>
+    <StartupObject>dopami.Program</StartupObject>
+    <ApplicationIcon />
+    <OutputType>Exe</OutputType>
     <!-- <SpaRoot>ClientApp\</SpaRoot> -->
     <!--<DefaultItemExcludes>$(DefaultItemExcludes);$(SpaRoot)node_modules\**</DefaultItemExcludes>-->
   </PropertyGroup>

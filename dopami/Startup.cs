@@ -36,10 +36,18 @@ namespace dopami {
 
             app.UseRouting();
 
+            //app.UseEndpoints(endpoints => {
+            //    endpoints.MapControllers();
+            //});
+
             app.UseEndpoints(endpoints => {
                 endpoints.MapControllerRoute(
+                    name: "index",
+                    pattern: "{id=0}/",
+                    defaults: new { controller = "Index", action = "Index" });
+                endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Index}/{action=Index}/{id?}");
+                    pattern: "{controller}/{action}/{name=default}");
             });
 
             //app.UseSpa(spa => {
