@@ -18,7 +18,7 @@ module.exports = {
                                 ['prismjs', {
                                     'languages': ['all'],
                                     'plugins': ['autoloader'],
-                                    'theme': 'tomorrow', // prism-tomorrow, try twilight later + custom themes
+                                    'theme': 'twilight', // tomorrow, try twilight later + custom themes
                                     'css': true,
                                 }],
                             ],
@@ -32,7 +32,11 @@ module.exports = {
             },
             {
                 test:/\.css$/,
-                include: [path.resolve(__dirname, 'src'), path.resolve(__dirname, 'node_modules/prismjs')],
+                include: [
+                    path.resolve(__dirname, 'src'),
+                    path.resolve(__dirname, 'node_modules/prismjs'),
+                    path.resolve(__dirname, 'node_modules/prism-themes'),
+                ],
                 use: [
                     'style-loader',
                     {
@@ -40,7 +44,8 @@ module.exports = {
                         options: { esModule: false } // this fixes a weird bug
                     },
                     'css-loader',
-                    'postcss-loader'],
+                    'postcss-loader'
+                ],
             },
         ]
     },

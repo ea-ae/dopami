@@ -2,8 +2,8 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 
 import Prism from 'prismjs'
+import 'prism-themes/themes/prism-one-dark.css'
 import 'prismjs/themes/prism-tomorrow.css'
-// import 'prismjs/components/prism-scss'
 
 import App from './app'
 import './index.css'
