@@ -14,14 +14,14 @@ module.exports = {
                         loader: 'babel-loader',
                         options: {
                             presets: ['@babel/preset-env', '@babel/preset-react', '@babel/preset-typescript'],
-                            plugins: [
+                            /*plugins: [
                                 ['prismjs', {
                                     'languages': ['all'],
                                     'plugins': ['autoloader'],
-                                    'theme': 'twilight', // tomorrow, try twilight later + custom themes
+                                    'theme': 'tomorrow', // tomorrow, try twilight later + custom themes
                                     'css': true,
                                 }],
-                            ],
+                            ],*/
                         },
                     },
                 ],
