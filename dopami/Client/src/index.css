@@ -8,6 +8,14 @@ pre, code {
     margin: 0 !important;
 }
 
-#code code *:nth-child(7) { /* bad style, but best we can do */
+#code code *:nth-child(7) { /* bad technique, but best we can do */
     color: #c9b834; /* colors the '@classmethod' decorator */
+}
+
+#code code span.token.string:not(.triple-quoted-string) { /* single quote inputs */
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+    cursor: text;
 }

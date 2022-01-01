@@ -43,7 +43,7 @@ export default class Code extends React.Component<CodeProps, {}> {
     render() {
         return (
             <pre className="focus:outline-0">
-                <code ref={this.codeRef} className={`text-md language-${this.props.language}`}>
+                <code ref={this.codeRef} className={`select-none cursor-default text-md language-${this.props.language}`}>
                     {this.props.code}
                 </code>
             </pre>
