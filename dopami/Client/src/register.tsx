@@ -6,7 +6,7 @@ import Code from './code'
 type RegisterProps = {}
 
 export default class Register extends React.Component<RegisterProps, {}> {
-    registerRef: React.RefObject<any>;
+    registerRef: React.RefObject<HTMLDivElement>;
 
     constructor(props: RegisterProps) {
         super(props);
@@ -15,7 +15,7 @@ export default class Register extends React.Component<RegisterProps, {}> {
 
     addForm() {
         console.log('addForm');
-        console.log(this.registerRef);
+        console.log(this.registerRef);  // undefined
     }
 
     render() {
