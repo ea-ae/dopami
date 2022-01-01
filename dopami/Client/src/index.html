@@ -8,27 +8,25 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&family=Roboto+Mono&family=Source+Code+Pro&family=Source+Sans+Pro&display=swap" rel="stylesheet"> 
 </head>
-<body class="h-screen flex flex-nowrap flex-grow justify-between items-center m-0 ml-24 mr-24 bg-slate-900">
-    <div class="m-5">
-        <span class="px-4 font-roboto-mono tracking-tighter text-9xl text-slate-100">Dopami</span>
-        <p class="mt-10 px-4 font-roboto-mono tracking-tighter text-3xl text-slate-300">recreational_debugging</p>
-    </div>
-    <div class="h-full px-6 bg-[#0A0A1A] text-slate-300">
-        <pre><code class="text-md language-py" contenteditable="true">
-            # fill out the variables and register below
-            # this text is editable!
-
-            class Dopami:
-                def join(self):
-
-                    self.username = ''
-                    self.email = ''
-                    self.password = 'hunter21'
-                    self.confirm_password = ''
-
-            game = Dopami(you)
-            game.join()
-        </code></pre>
-    </div>
+<body class="h-screen flex flex-col m-0 bg-slate-900">
+    <main class="grow flex flex-nowrap flex-grow justify-around items-center"> <!-- items-center -pl-24 pr-24 -->
+        <div class="m-5 ml-[3%]">
+            <span class="px-4 font-roboto-mono tracking-tighter text-9xl text-slate-100">LrmIpsm</span>
+            <p class="mt-10 px-4 font-roboto-mono tracking-tighter text-3xl text-slate-300">recreational_debugging</p>
+        </div>
+        <div class="m-5 mr-[3%]">
+            <div id="code" class="h-fit-content p-2 bg-[#0A0A1A] text-slate-300"><!-- react --></div>
+            <div class="py-3 font-roboto-mono text-xl text-center text-slate-100 bg-violet-700 select-none cursor-pointer">
+                LrmIpsm.join(you)
+            </div>
+        </div>
+    </main>
+    <!-- todo: we would obviously want to showcase more features here, make the register/login box sticky! -->
+    <footer class="flex justify-center">
+        <p class="px-10 text-gray-600 text-md">About</p>
+        <p class="px-10 text-gray-600 text-md">Contact</p>
+        <p class="px-10 text-gray-600 text-md">Terms</p>
+        <p class="px-10 text-gray-600 text-md">Privacy</p>
+    </footer>
 </body>
 </html>

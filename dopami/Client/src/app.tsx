@@ -11,7 +11,7 @@ const ListNumber = ({num}: {num: number}) => {
     );
 }
 
-interface Items {
+type Items = {
     title: string;
     items: number[];
 }

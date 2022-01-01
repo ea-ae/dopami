@@ -5,4 +5,9 @@
 
 pre, code {
     background: transparent !important;
+    margin: 0 !important;
+}
+
+#code code *:nth-child(7) { /* bad style, but best we can do */
+    color: #c9b834; /* colors the '@classmethod' decorator */
 }
