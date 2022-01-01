@@ -38,7 +38,7 @@ export default class Register extends React.Component<{}, {}> {
             child.textContent = `'`;
             let secondQuote = child.cloneNode(true);
 
-            //append elements
+            // append elements
             const nextSibling = child.nextSibling;
             parentElement.insertBefore(input, nextSibling);
             parentElement.insertBefore(secondQuote, nextSibling);

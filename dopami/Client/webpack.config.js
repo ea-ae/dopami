@@ -4,19 +4,19 @@ const path = require('path');
 
 module.exports = {
     mode: 'development',
-    entry: './src/index.tsx',
+    entry: {
+        index: './src/index/index.tsx',
+    },
     module: {
         rules: [
             {
                 test: /\.(js|jsx)$/,
-                use: [
-                    {
-                        loader: 'babel-loader',
-                        options: {
-                            presets: ['@babel/preset-env', '@babel/preset-react', '@babel/preset-typescript'],
-                        },
+                use: [{
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['@babel/preset-env', '@babel/preset-react', '@babel/preset-typescript'],
                     },
-                ],
+                },],
             },
             {
                 test: /\.tsx?$/,
@@ -45,12 +45,19 @@ module.exports = {
         extensions: ['.tsx', '.ts', '.js'],
     },
     output: {
-        filename: 'main.js',
+        filename: '[name].bundle.js',
         path: path.resolve(__dirname, 'dist'),
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: 'src/index.html',
+            template: 'src/index/index.html',
+            filename: 'index.html',
+            favicon: 'public/favicons/favicon.ico'
+        }),
+        new HtmlWebpackPlugin({
+            template: 'src/app/index.html',
+            filename: 'app.html',
+            favicon: 'public/favicons/favicon.ico'
         }),
         new MiniCssExtractPlugin(),
     ],
