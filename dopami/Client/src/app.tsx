@@ -1,5 +1,5 @@
 import { title } from 'process';
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
 import './index.css'
 

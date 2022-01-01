@@ -1,6 +1,6 @@
-import React from 'react'
+import React from 'react';
 
-import Code from './code'
+import Code from './code';
 
 
 type RegisterProps = {}
@@ -15,16 +15,22 @@ export default class Register extends React.Component<RegisterProps, {}> {
 
     addForm() {
         console.log('addForm');
-        console.log(this.registerRef);  // undefined
+        // console.log(this.registerRef); // undefined
+
+        const root = document.getElementById('code'); // refs bug, only apparent fix
+        let code = root!.children[0].children[0].children[0];
+
+        console.log(code);
     }
 
     render() {
+        // """Uncompetitive programming games"""
         const source_code = `
             # login/register below by filling out the
             # 2/4 attributes: this text is editable!
 
             class LrmIpsm:
-                """Uncompetitive programming games"""
+                """Lorem ipsum dolor sit amet."""
                 @classmethod
                 def join(human):
                     self.auth(human)
@@ -34,8 +40,8 @@ export default class Register extends React.Component<RegisterProps, {}> {
             you.password = ''
 
             # ... and register?
-            you.confirm_pass  = ''
-            you.email_address = ''`
+            you.confirm_pw = ''
+            you.email_addr = ''`
 
         return (
             <div ref={this.registerRef}>

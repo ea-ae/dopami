@@ -14,14 +14,6 @@ module.exports = {
                         loader: 'babel-loader',
                         options: {
                             presets: ['@babel/preset-env', '@babel/preset-react', '@babel/preset-typescript'],
-                            plugins: [
-                                ['prismjs', {
-                                    'languages': ['c', 'cpp'],
-                                    'plugins': [], //['autoloader'],
-                                    'theme': 'twilight', // tomorrow, try twilight later + custom themes
-                                    'css': true,
-                                }],
-                            ],
                         },
                     },
                 ],
@@ -68,6 +60,8 @@ module.exports = {
             progress: true,
         },
         // compress: true,
+        // historyApiFallback: true,
+        // contentBase: './',
         port: 9001,
         watchFiles: {paths: ['./src/**/*']},
     },

@@ -1,9 +1,9 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import Prism from 'prismjs'
-import 'prismjs/plugins/autoloader/prism-autoloader'
-import 'prismjs/plugins/normalize-whitespace/prism-normalize-whitespace'
-import 'prism-themes/themes/prism-one-dark.css'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Prism from 'prismjs';
+import 'prismjs/plugins/autoloader/prism-autoloader';
+import 'prismjs/plugins/normalize-whitespace/prism-normalize-whitespace';
+import 'prism-themes/themes/prism-one-dark.css';
 
 
 type CodeProps = {
@@ -42,8 +42,8 @@ export default class Code extends React.Component<CodeProps, {}> {
 
     render() {
         return (
-            <pre className="focus:outline-0">
-                <code ref={this.codeRef} className={`select-none cursor-default text-md language-${this.props.language}`}>
+            <pre className='focus:outline-0'>
+                <code key='code' ref={this.codeRef} className={`select-none cursor-default text-md language-${this.props.language}`}>
                     {this.props.code}
                 </code>
             </pre>
