@@ -7,6 +7,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&family=Roboto+Mono&family=Source+Code+Pro&family=Source+Sans+Pro&display=swap" rel="stylesheet"> 
+    <script>
+        window.Prism = window.Prism || {};
+        Prism.manual = true;
+    </script>
 </head>
 <body class="h-screen flex flex-col m-0 bg-slate-900">
     <main class="grow flex flex-nowrap flex-grow justify-around items-center"> <!-- items-center -pl-24 pr-24 -->
@@ -25,10 +29,13 @@
     </main>
     <!-- todo: we would obviously want to showcase more features here, make the register/login box sticky! -->
     <footer id="footer" class="flex justify-center">
-        <!-- <p class="mx-9 px-1 font-roboto-mono text-gray-600 hover:text-gray-500 text-sm cursor-default">About</p>
+        <p class="mx-9 px-1 font-roboto-mono text-gray-600 hover:text-gray-500 text-sm cursor-default">About</p>
         <p class="mx-9 px-1 font-roboto-mono text-gray-600 hover:text-gray-500 text-sm cursor-default">Contact</p>
         <p class="mx-9 px-1 font-roboto-mono text-gray-600 hover:text-gray-500 text-sm cursor-default">Terms</p>
-        <p class="mx-9 px-1 font-roboto-mono text-gray-600 hover:text-gray-500 text-sm cursor-default">Privacy</p> -->
+        <p class="mx-9 px-1 font-roboto-mono text-gray-600 hover:text-gray-500 text-sm cursor-default">Privacy</p>
     </footer>
+    <template id="form-input">
+        <b>hello, world?!</b>
+    </template>
 </body>
 </html>

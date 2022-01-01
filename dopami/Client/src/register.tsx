@@ -3,24 +3,47 @@ import React from 'react';
 import Code from './code';
 
 
-type RegisterProps = {}
 
-export default class Register extends React.Component<RegisterProps, {}> {
-    registerRef: React.RefObject<HTMLDivElement>;
+export default class Register extends React.Component<{}, {}> {
+    addForm() {
+        const root = document.getElementById('code'); // refs bug, only apparent fix
+        let code = root!.children[0].children[0];
+        
+        // prism callbacks don't actually work, so we'll manually wait
+        // for new children with a mutation observer
 
-    constructor(props: RegisterProps) {
-        super(props);
-        this.registerRef = React.createRef();
+        this.addFormInputs(code);
+        let observer = new MutationObserver((mutations) => {
+            //for (let mutation of mutations) {
+            if (this.addFormInputs(code)) observer.disconnect();
+        })
+        observer.observe(code, { childList: true }); // wait for changes
     }
 
-    addForm() {
-        console.log('addForm');
-        // console.log(this.registerRef); // undefined
+    addFormInputs(parentElement: Element): boolean {
+        const selector = 'span.token.string:not(.triple-quoted-string)';
+        const inputElement = '<input type="text">';
+        let successful = false;
 
-        const root = document.getElementById('code'); // refs bug, only apparent fix
-        let code = root!.children[0].children[0].children[0];
+        let found = Array.from(parentElement.querySelectorAll(selector));
+        for (let child of found) {
+            successful = true;
+            let field = child.previousSibling!.previousSibling!.previousSibling!.textContent!.trim();
+            
+            // create input box
+            let input = document.createElement('span');
+            input.innerHTML = inputElement.trim();
 
-        console.log(code);
+            // create second quote
+            child.textContent = `'`;
+            let secondQuote = child.cloneNode(true);
+
+            //append elements
+            const nextSibling = child.nextSibling;
+            parentElement.insertBefore(input, nextSibling);
+            parentElement.insertBefore(secondQuote, nextSibling);
+        }
+        return successful;
     }
 
     render() {
@@ -44,9 +67,7 @@ export default class Register extends React.Component<RegisterProps, {}> {
             you.email_addr = ''`
 
         return (
-            <div ref={this.registerRef}>
-                <Code code={source_code} language='python' onHighlight={this.addForm} />
-            </div>
+            <Code code={source_code} language='python' onHighlight={() => this.addForm()} />
         );
     }
 }
