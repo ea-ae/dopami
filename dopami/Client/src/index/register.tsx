@@ -28,8 +28,8 @@ const RegisterCode = () => {
     // bypass some of the library's restrictions.
     return (
         <>
-        <span className='token comment'># login/register by filling out the 2-4</span>{'\n'}
-        <span className='token comment'># strings below: click on them!</span>{'\n'}
+        <span className='token comment'># login/register by filling out the strings</span>{'\n'}
+        <span className='token comment'># (the attributes are editable!)</span>{'\n'}
         <span className='token keyword'>class </span>
         <span className='token className-name'>LrmIpsm</span>
         <span className='token punctuation'>:</span>{'\n'}
@@ -42,30 +42,56 @@ const RegisterCode = () => {
         <span className='token punctuation'>(</span>human<span className='token punctuation'>)</span>{'\n\n'}
 
         <span className='token comment'># login?</span>{'\n'}
-        <RegisterInput label='username' index={1} censor={false} />
-        <RegisterInput label='password' index={2} censor={true} />{'\n'}
+        <RegisterInput label='username' type='text' index={1} />
+        <RegisterInput label='password' type='password' index={2} />{'\n'}
 
         <span className='token comment'># ... and register?</span>{'\n'}
-        <RegisterInput label='confirm_pw' index={3} censor={true} />
-        <RegisterInput label='email_addr' index={4} censor={false} />
+        <RegisterInput label='confirm_pw' type='password' index={3} />
+        <RegisterInput label='email_addr' type='email' index={4} />
         </>
     );
 }
 
-const RegisterInput = ({label, index, censor}: {label: string, index: number, censor: boolean}) => {
-    const inputRef = useRef<HTMLElement>(null);
+type RegisterInputProps = {
+    label: string;
+    type: string;
+    index: number;
+}
+
+const RegisterInput = ({label, type, index}: RegisterInputProps) => {
+    // const inputRef = useRef<HTMLElement>(null);
+    const inputRef = useRef<HTMLInputElement>(null);
+    const maxLength = type == 'text' ? 20 : 60;
+    let pattern = /.*/;
+    if (type == 'text') {
+        pattern = /^[A-Za-z0-9]{4,20}$/;
+    } else if (type == 'password') {
+        pattern = /^.{8,60}$/;
+    }
 
     const focusInput = () => {
         if (inputRef.current) inputRef.current.focus();
+        // if (inputRef.current) inputRef.current.focus();
+        // <span ref={inputRef} className='token string select-text focus:outline-0'
+        //       tabIndex={index} contentEditable='true' role='textbox'></span>
+    }
+
+    const resizeInput = () => { // props to https://codepen.io/shshaw
+        if (inputRef.current) {
+            const parent = inputRef.current.parentNode! as HTMLElement;
+            parent.dataset.value = inputRef.current.value.substring(0, 20); // max width
+        }
     }
 
     return (
-        <div onClick={focusInput} className='cursor-text select-none'>
-        you<span className='token punctuation'>.</span>{label}
+        <div onClick={focusInput} className='max-w-full overflow-hidden cursor-text select-none'>
+        me<span className='token punctuation'>.</span>{label}
         <span className='token operator'> = </span>
         <span className='token string'>'</span>
-            <span ref={inputRef} className='token string select-text focus:outline-0'
-                  tabIndex={index} contentEditable='true' role='textbox'></span>
+        <span className='input-sizer'>
+            <input ref={inputRef} type={type} size={1} pattern={pattern.source}
+                   maxLength={maxLength} placeholder='?' onInput={resizeInput} required />
+        </span>
         <span className='token string'>'</span>
         </div>
     );
@@ -80,7 +106,7 @@ const RegisterButton = () => {
         <div onClick={handleRegistration}
              className='py-3 border border-solid border-violet-500 font-roboto-mono text-xl text-center text-slate-100
                         bg-violet-700 hover:bg-[#7430E2] transition-colors duration-200 select-none cursor-pointer'>
-            <span className='z-20' tabIndex={5} onKeyPress={handleRegistration}>LrmIpsm.join(you)</span>
+            <span className='z-20' tabIndex={5} onKeyPress={handleRegistration}>LrmIpsm.join(me)</span>
         </div>
     );
 }
