@@ -6,10 +6,13 @@ import Register from './register';
 // import Footer from './footer';
 import './index.css';
 
-alert('index');
 
 ReactDOM.render(
-    <Register />,
+    <pre className='m-3 tracking-tight leading-6 font-roboto-mono text-md focus:outline-0'>
+        <code className='select-none cursor-default text-md language-py'>
+            <Register />
+        </code>
+    </pre>,
     document.getElementById('code')
 );
 

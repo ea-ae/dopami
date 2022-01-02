@@ -4,18 +4,22 @@
 
 
 pre, code {
-    background: transparent !important;
-    margin: 0 !important;
+    margin: 0;
+    font-family: "Fira Code", "Fira Mono", Menlo, Consolas, "DejaVu Sans Mono", monospace;
 }
 
-#code code *:nth-child(7) { /* bad technique, but best we can do */
-    color: #c9b834; /* colors the '@classmethod' decorator */
+.token.decorator {
+    color: #c9b834;
 }
 
-#code code span.token.string:not(.triple-quoted-string) { /* single quote inputs */
+.token.self {
+    color: #e35d5d;
+}
+
+/* #code code span.token.string:not(.triple-quoted-string) { /* single quote inputs *//*
     -webkit-user-select: text;
     -moz-user-select: text;
     -ms-user-select: text;
     user-select: text;
     cursor: text;
-}
+} */
