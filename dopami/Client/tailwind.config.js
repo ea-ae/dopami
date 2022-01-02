@@ -9,6 +9,7 @@
     theme: {
         extend: {},
         fontFamily: {
+            'consolas': 'Consolas, monospace',
             'source-code': 'Source Code Pro, monospace',
             'source-sans': 'Source Sans Pro, sans-serif',
             'roboto': 'Roboto, sans-serif',

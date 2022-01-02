@@ -3,11 +3,6 @@
 @tailwind utilities;
 
 
-pre, code {
-    margin: 0;
-    font-family: "Fira Code", "Fira Mono", Menlo, Consolas, "DejaVu Sans Mono", monospace;
-}
-
 .token.decorator {
     color: #c9b834;
 }
