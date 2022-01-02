@@ -2,10 +2,12 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
 
+
 module.exports = {
     mode: 'development',
     entry: {
         index: './src/index/index.tsx',
+        app: './src/app/app.tsx',
     },
     module: {
         rules: [
@@ -47,20 +49,31 @@ module.exports = {
     output: {
         filename: '[name].bundle.js',
         path: path.resolve(__dirname, 'dist'),
+        clean: true,
     },
     plugins: [
         new HtmlWebpackPlugin({
             template: 'src/index/index.html',
             filename: 'index.html',
-            favicon: 'public/favicons/favicon.ico'
+            chunks: ['index'],
+            favicon: 'public/favicons/favicon.ico',
         }),
         new HtmlWebpackPlugin({
-            template: 'src/app/index.html',
+            template: 'src/app/app.html',
             filename: 'app.html',
-            favicon: 'public/favicons/favicon.ico'
+            chunks: ['app'],
+            favicon: 'public/favicons/favicon.ico',
         }),
-        new MiniCssExtractPlugin(),
+        new MiniCssExtractPlugin({
+            filename: '[name].css',
+        }),
     ],
+    optimization: {
+        splitChunks: {
+            chunks: 'all',
+            minSize: 35000, // 35kb
+        },
+    },
     devServer: {
         hot: true,
         client: {

@@ -6,6 +6,7 @@ import Register from './register';
 // import Footer from './footer';
 import './index.css';
 
+alert('index');
 
 ReactDOM.render(
     <Register />,
