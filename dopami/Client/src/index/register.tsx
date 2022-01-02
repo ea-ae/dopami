@@ -28,12 +28,12 @@ const RegisterCode = () => {
     // bypass some of the library's restrictions.
     return (
         <>
-        <span className='token comment'># login/register below by filling out the</span>{'\n'}
-        <span className='token comment'># 2/4 attributes: this text is editable!</span>{'\n'}
+        <span className='token comment'># login/register by filling out the 2-4</span>{'\n'}
+        <span className='token comment'># strings below: click on them!</span>{'\n'}
         <span className='token keyword'>class </span>
         <span className='token className-name'>LrmIpsm</span>
         <span className='token punctuation'>:</span>{'\n'}
-        <span className='token triple-quoted-string string'>    '''Lorem ipsum dolor sit amet.'''</span>{'\n'}
+        <span className='token triple-quoted-string string'>    """Lorem ipsum dolor sit amet."""</span>{'\n'}
         <span className='token decorator annotation punctuation'>    @staticmethod</span>{'\n'}
         <span className='token keyword'>    def </span><span className='token function'>join</span>
         <span className='token punctuation'>(</span><span className='token self'>self</span>, human
@@ -41,7 +41,7 @@ const RegisterCode = () => {
         <span className='token self'>        self</span><span className='token punctuation'>.</span>auth
         <span className='token punctuation'>(</span>human<span className='token punctuation'>)</span>{'\n\n'}
 
-        <span className='token comment'># login</span>{'\n'}
+        <span className='token comment'># login?</span>{'\n'}
         <RegisterInput label='username' index={1} censor={false} />
         <RegisterInput label='password' index={2} censor={true} />{'\n'}
 
@@ -65,7 +65,7 @@ const RegisterInput = ({label, index, censor}: {label: string, index: number, ce
         <span className='token operator'> = </span>
         <span className='token string'>'</span>
             <span ref={inputRef} className='token string select-text focus:outline-0'
-                  tabIndex={index} contentEditable='true'></span>
+                  tabIndex={index} contentEditable='true' role='textbox'></span>
         <span className='token string'>'</span>
         </div>
     );
@@ -80,7 +80,7 @@ const RegisterButton = () => {
         <div onClick={handleRegistration}
              className='py-3 border border-solid border-violet-500 font-roboto-mono text-xl text-center text-slate-100
                         bg-violet-700 hover:bg-[#7430E2] transition-colors duration-200 select-none cursor-pointer'>
-            <span className='z-20' tabIndex={5}>LrmIpsm.join(you)</span>
+            <span className='z-20' tabIndex={5} onKeyPress={handleRegistration}>LrmIpsm.join(you)</span>
         </div>
     );
 }
