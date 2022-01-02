@@ -1,21 +1,31 @@
 import React, { useRef } from 'react';
 
-// import Code from './code';
 import './manual-prism.css'
 
 
 const Register = () => {
+    const handleRegistration = (e: React.SyntheticEvent) => {
+        e.preventDefault();
+        const target = e.target as typeof e.target & {
+            username: { value: string };
+            password: { value: string };
+            confirm_pw: { value: string };
+            email_addr: { value: string };
+        };
+        console.log(target.username.value);
+    };
+
     return (
-        <>
-        <div className='h-fit-content p-2 bg-[#0A0A1A] text-slate-300'>
-            <pre className='m-3 tracking-tight leading-6 text-md'>
-                <code className='m-0 font-consolas select-none cursor-default text-md language-py'>
-                    <RegisterCode />
-                </code>
-            </pre>
-        </div>
-        <RegisterButton />
-        </>
+        <form onSubmit={handleRegistration}>
+            <div className='h-fit-content p-2 bg-[#0A0A1A] text-slate-300'>
+                <pre className='m-3 tracking-tight leading-6 text-md'>
+                    <code className='m-0 font-consolas select-none cursor-default text-md language-py'>
+                        <RegisterCode />
+                    </code>
+                </pre>
+            </div>
+            <RegisterButton />
+        </form>
     );
 }
 
@@ -59,7 +69,6 @@ type RegisterInputProps = {
 }
 
 const RegisterInput = ({label, type, index}: RegisterInputProps) => {
-    // const inputRef = useRef<HTMLElement>(null);
     const inputRef = useRef<HTMLInputElement>(null);
     const maxLength = type == 'text' ? 20 : 60;
     let pattern = /.*/;
@@ -70,10 +79,7 @@ const RegisterInput = ({label, type, index}: RegisterInputProps) => {
     }
 
     const focusInput = () => {
-        if (inputRef.current) inputRef.current.focus();
-        // if (inputRef.current) inputRef.current.focus();
-        // <span ref={inputRef} className='token string select-text focus:outline-0'
-        //       tabIndex={index} contentEditable='true' role='textbox'></span>
+        if (inputRef.current) inputRef.current.focus(); // label alternative
     }
 
     const resizeInput = () => { // props to https://codepen.io/shshaw
@@ -89,8 +95,8 @@ const RegisterInput = ({label, type, index}: RegisterInputProps) => {
         <span className='token operator'> = </span>
         <span className='token string'>'</span>
         <span className='input-sizer'>
-            <input ref={inputRef} type={type} size={1} pattern={pattern.source}
-                   maxLength={maxLength} placeholder='?' onInput={resizeInput} required />
+            <input ref={inputRef} type={type} name={label} size={1} pattern={pattern.source}
+                   maxLength={maxLength} placeholder='?' onInput={resizeInput} />
         </span>
         <span className='token string'>'</span>
         </div>
@@ -98,15 +104,16 @@ const RegisterInput = ({label, type, index}: RegisterInputProps) => {
 }
 
 const RegisterButton = () => {
-    const handleRegistration = () => {
-        console.log('handleRegistration');
-    }
+    const inputRef = useRef<HTMLInputElement>(null);
+    // <span className='z-20' tabIndex={5} onKeyPress={handleRegistration}>LrmIpsm.join(me)</span>
+    // onClick={e => ((e.target as HTMLElement).parentNode! as HTMLFormElement).submit()}
 
     return (
-        <div onClick={handleRegistration}
+        <div onClick={() => inputRef.current!.click()}
              className='py-3 border border-solid border-violet-500 font-roboto-mono text-xl text-center text-slate-100
                         bg-violet-700 hover:bg-[#7430E2] transition-colors duration-200 select-none cursor-pointer'>
-            <span className='z-20' tabIndex={5} onKeyPress={handleRegistration}>LrmIpsm.join(me)</span>
+            <input ref={inputRef} type='submit' onClick={e => e.stopPropagation()} 
+                   className='z-20' tabIndex={5} value='LrmIpsm.join(me)' />
         </div>
     );
 }

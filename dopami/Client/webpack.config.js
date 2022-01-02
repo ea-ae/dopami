@@ -56,13 +56,13 @@ module.exports = {
             template: 'src/index/index.html',
             filename: 'index.html',
             chunks: ['index'],
-            favicon: 'public/favicons/favicon.ico',
+            // favicon: 'public/favicons/favicon.ico',
         }),
         new HtmlWebpackPlugin({
             template: 'src/app/app.html',
             filename: 'app.html',
             chunks: ['app'],
-            favicon: 'public/favicons/favicon.ico',
+            // favicon: 'public/favicons/favicon.ico',
         }),
         new MiniCssExtractPlugin({
             filename: '[name].css',
@@ -76,6 +76,7 @@ module.exports = {
     },
     devServer: {
         hot: true,
+        static: { directory: path.join(__dirname, 'public') },
         client: {
             progress: true,
         },
