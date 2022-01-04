@@ -38,8 +38,8 @@ const RegisterCode = () => {
     // bypass some of the library's restrictions.
     return (
         <>
-        <span className='token comment'># login/register by filling out the strings</span>{'\n'}
-        <span className='token comment'># (the attributes are editable!)</span>{'\n'}
+        <span className='token comment'># fill out the strings to login/register</span>{'\n'}
+        <span className='token comment'># (the variables are editable!)</span>{'\n'}
         <span className='token keyword'>class </span>
         <span className='token className-name'>LrmIpsm</span>
         <span className='token punctuation'>:</span>{'\n'}
@@ -96,7 +96,7 @@ const RegisterInput = ({label, type, index}: RegisterInputProps) => {
         <span className='token string'>'</span>
         <span className='input-sizer'>
             <input ref={inputRef} type={type} name={label} size={1} pattern={pattern.source}
-                   maxLength={maxLength} placeholder='?' onInput={resizeInput} />
+                   maxLength={maxLength} autoComplete='off' placeholder='?' onInput={resizeInput} />
         </span>
         <span className='token string'>'</span>
         </div>

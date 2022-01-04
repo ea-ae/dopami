@@ -9,7 +9,7 @@ import 'prism-themes/themes/prism-one-dark.css';
 type CodeProps = {
     code: string;
     language: string;
-    onHighlight: () => any;
+    onHighlight: () => void;
 }
 
 export default class Code extends React.Component<CodeProps, {}> {
