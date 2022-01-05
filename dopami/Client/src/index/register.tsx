@@ -16,9 +16,10 @@ const Register = () => {
     };
 
     return (
-        <form onSubmit={handleRegistration}>
+        <>
+        <form className='shadow-md shadow-neutral-900/50' onSubmit={handleRegistration}>
             <div className='h-fit-content p-2 bg-[#0A0A1A] text-slate-300'>
-                <pre className='m-3 tracking-tight leading-6 text-md'>
+                <pre className='m-3 tracking-tight leading-snug leading-6 text-md'>
                     <code className='m-0 font-consolas select-none cursor-default text-md language-py'>
                         <RegisterCode />
                     </code>
@@ -26,6 +27,11 @@ const Register = () => {
             </div>
             <RegisterButton />
         </form>
+        <div className='mt-2 py-3 font-roboto-mono text-md text-center text-neutral-400 select-none'>
+            <a className='pr-2 text-md hover:text-neutral-200 transition-colors' href='/app'>play_as_guest()</a>
+            <a className='pr-2 text-md hover:text-neutral-200 transition-colors' href='/forgot'>forgot_password()</a>
+        </div>
+        </>
     );
 }
 
@@ -71,6 +77,7 @@ type RegisterInputProps = {
 const RegisterInput = ({label, type, index}: RegisterInputProps) => {
     const inputRef = useRef<HTMLInputElement>(null);
     const maxLength = type == 'text' ? 20 : 60;
+
     let pattern = /.*/;
     if (type == 'text') {
         pattern = /^[A-Za-z0-9]{4,20}$/;
