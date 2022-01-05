@@ -16,13 +16,13 @@ module.exports = {
             template: 'src/index/index.html',
             filename: 'index.html',
             chunks: ['index'],
-            // favicon: 'public/favicons/favicon.ico',
+            favicon: 'public/favicons/favicon.ico',
         }),
         new HtmlWebpackPlugin({
             template: 'src/app/app.html',
             filename: 'app.html',
             chunks: ['app'],
-            // favicon: 'public/favicons/favicon.ico',
+            favicon: 'public/favicons/favicon.ico',
         }),
     ],
     module: { rules: [

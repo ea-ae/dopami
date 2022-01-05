@@ -21,21 +21,26 @@ module.exports = merge(common, {
     devServer: {
         hot: true,
         magicHtml: true,
-        static: { directory: path.join(__dirname, 'public/favicons') },
+        static: { directory: path.join(__dirname, 'public') },
         client: {
             progress: true,
         },
         compress: true,
-        // historyApiFallback: true,
         // contentBase: './',
         port: 9001,
         watchFiles: {paths: ['./src/**/*']},
-
+        historyApiFallback: {
+            index: '/',
+            rewrites: [
+                { from: /^\/app/, to: '/app.html' },
+                { from: /./, to: '404.html' },
+            ],
+        },
         proxy: {
             '/api': {
                 target: 'http://localhost:9002',
                 secure: false,
-            }
+            },
         },
     },
 });
