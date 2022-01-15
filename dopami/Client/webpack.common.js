@@ -19,6 +19,12 @@ module.exports = {
             favicon: 'public/favicons/favicon.ico',
         }),
         new HtmlWebpackPlugin({
+            template: 'src/static/about.html',
+            filename: 'about.html',
+            chunks: ['static'],
+            favicon: 'public/favicons/favicon.ico',
+        }),
+        new HtmlWebpackPlugin({
             template: 'src/app/app.html',
             filename: 'app.html',
             chunks: ['app'],
