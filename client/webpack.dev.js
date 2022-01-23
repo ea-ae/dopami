@@ -11,6 +11,7 @@ module.exports = merge(common, {
     output: {
         filename: '[name].bundle.js',
         path: path.resolve(__dirname, 'devdist'),
+        publicPath: '/',
         clean: true,
     },
     plugins: [

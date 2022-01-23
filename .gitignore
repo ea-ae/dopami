@@ -1,5 +1,5 @@
 # Custom
 .vs/
 node_modules/
-dopami/Client/dist/
-dopami/Client/devdist/
+client/dist/
+client/devdist/
