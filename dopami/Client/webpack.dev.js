@@ -22,9 +22,7 @@ module.exports = merge(common, {
         hot: true,
         magicHtml: true,
         static: { directory: path.join(__dirname, 'public') },
-        client: {
-            progress: true,
-        },
+        client: { progress: true },
         compress: true,
         // contentBase: './',
         port: 9001,
@@ -33,7 +31,7 @@ module.exports = merge(common, {
             index: '/',
             rewrites: [
                 { from: /^\/app/, to: '/app.html' },
-                { from: /./, to: '404.html' },
+                { from: /./, to: '/404.html' },
             ],
         },
         proxy: {

@@ -9,8 +9,11 @@ builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment()) {}
+// Middleware.
+
+if (app.Environment.IsDevelopment()) {
+    app.UseDeveloperExceptionPage();
+}
 
 app.UseStaticFiles(new StaticFileOptions {
     FileProvider = new PhysicalFileProvider(
@@ -21,10 +24,12 @@ app.UseStaticFiles(new StaticFileOptions {
 
 app.UseRouting();
 
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller}/{action=Index}");
+app.MapControllers();
 
-app.MapFallbackToFile("index.html");
+//app.MapControllerRoute(
+//    name: "default",
+//    pattern: "{controller}/{action=Index}");
+
+// app.MapFallbackToFile("404.html");
 
 app.Run();

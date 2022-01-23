@@ -3,10 +3,21 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
 
 
+const staticFilenames = ['404', 'about'];
+const staticPages = staticFilenames.map(name => {
+    return new HtmlWebpackPlugin({
+      template: `src/static/${name}.html`,
+      filename: `${name}.html`,
+      chunks: ['static']
+    })
+});
+
+
 module.exports = {
     entry: {
         index: './src/index/index.tsx',
         app: './src/app/app.tsx',
+        static: './src/static/static.tsx'
     },
     resolve: {
         extensions: ['.tsx', '.ts', '.js'],
@@ -19,18 +30,12 @@ module.exports = {
             favicon: 'public/favicons/favicon.ico',
         }),
         new HtmlWebpackPlugin({
-            template: 'src/static/about.html',
-            filename: 'about.html',
-            chunks: ['static'],
-            favicon: 'public/favicons/favicon.ico',
-        }),
-        new HtmlWebpackPlugin({
             template: 'src/app/app.html',
             filename: 'app.html',
             chunks: ['app'],
             favicon: 'public/favicons/favicon.ico',
-        }),
-    ],
+        }),]
+        .concat(staticPages),
     module: { rules: [
         {
             test: /\.(js|jsx)$/,
