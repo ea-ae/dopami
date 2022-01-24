@@ -1,0 +1,14 @@
+# Common config
+services:
+  client:
+    build:
+      context: client/
+  dopami:
+    build:
+      context: dopami/
+    ports:
+      - 9002:9002
+    volumes:
+      - ./dopami/:/srv
+      - /srv/bin
+      - /srv/obj

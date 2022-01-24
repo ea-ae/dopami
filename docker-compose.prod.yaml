@@ -1,0 +1,8 @@
+# Production-specific config
+services:
+  client:
+    build:
+      target: prod
+  dopami:
+    build:
+      target: prod

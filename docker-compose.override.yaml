@@ -1,0 +1,10 @@
+# Development-specific config
+services:
+  client:
+    ports:
+      - 9001:9001
+    build:
+      target: dev
+  dopami:
+    build:
+      target: dev
