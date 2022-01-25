@@ -20,6 +20,7 @@ module.exports = merge(common, {
         }),
     ],
     devServer: {
+        port: 8080,
         hot: true,
         magicHtml: true,
         static: { directory: path.join(__dirname, 'public') },
