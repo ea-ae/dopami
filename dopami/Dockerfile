@@ -1,7 +1,7 @@
 # syntax=docker/dockerfile:1
 
 # Development
-FROM mcr.microsoft.com/dotnet/core/sdk AS dev
+FROM mcr.microsoft.com/dotnet/core/sdk:6.0 AS dev
 
 ENV ASPNETCORE_URLS=http://+:9002
 ENV ASPNETCORE_ENVIRONMENT="Development"
@@ -11,7 +11,7 @@ WORKDIR /srv
 CMD ["/bin/bash", "-c", "dotnet restore && dotnet run"]
 
 # Production
-FROM mcr.microsoft.com/dotnet/core/aspnet as prod
+FROM mcr.microsoft.com/dotnet/core/aspnet:6.0 as prod
 
 ENV ASPNETCORE_URLS=http://+:9002
 ENV ASPNETCORE_ENVIRONMENT="Production"
