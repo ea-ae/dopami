@@ -1,8 +1,17 @@
-# Production-specific config
+# Development-specific config
 services:
   client:
     build:
-      target: prod
+      target: dev
+    ports:
+      - 9001:9001
+    volumes:
+      - ./client/:/app
+      - /app/node_modules
   dopami:
     build:
-      target: prod
+      target: dev
+    volumes:
+      - ./dopami/:/app
+      - /app/bin
+      - /app/obj
