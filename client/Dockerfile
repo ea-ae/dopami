@@ -15,7 +15,7 @@ WORKDIR /app
 RUN npm install
 EXPOSE 9001
 # CMD ["npm", "run", "server"]
-CMD npm run server
+# CMD webpack serve --config webpack.dev.js
 
 # Production
 FROM base as prod

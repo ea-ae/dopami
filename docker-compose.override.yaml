@@ -1,14 +1,8 @@
-# Development-specific config
+# Production-specific config
 services:
   client:
     build:
-      target: dev
-    ports:
-      - 9001:9001
+      target: prod
   dopami:
     build:
-      target: dev
-    volumes:
-      - ./dopami/:/srv
-      - /srv/bin
-      - /srv/obj
+      target: prod

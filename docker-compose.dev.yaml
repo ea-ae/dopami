@@ -1,0 +1,14 @@
+# Development-specific config
+services:
+  client:
+    build:
+      target: dev
+    ports:
+      - 9001:9001
+  dopami:
+    build:
+      target: dev
+    volumes:
+      - ./dopami/:/srv
+      - /srv/bin
+      - /srv/obj
