@@ -28,8 +28,8 @@ const Register = () => {
             <RegisterButton />
         </form>
         <div className='mt-2 py-3 font-roboto-mono text-md text-center text-neutral-400 select-none'>
-            <a className='pr-2 text-md hover:text-neutral-200 transition-colors' href='/app'>play_as_guest()</a>
-            <a className='pr-2 text-md hover:text-neutral-200 transition-colors' href='/forgot'>forgot_password()</a>
+            <a className='pr-3 text-md hover:text-neutral-200 transition-colors' href='/app'>play_as_guest()</a>
+            <a className='pl-3 text-md hover:text-neutral-200 transition-colors' href='/forgot'>forgot_password()</a>
         </div>
         </>
     );

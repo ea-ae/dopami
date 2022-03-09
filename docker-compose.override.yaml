@@ -11,7 +11,7 @@ services:
   dopami:
     build:
       target: dev
-    # volumes:
-      # - ./dopami/:/app
-      # - /app/bin
-      # - /app/obj
+    volumes:
+      - ./dopami:/app
+      - /app/bin
+      - /app/obj
