@@ -3,6 +3,27 @@ services:
   client:
     build:
       target: prod
+    volumes:
+      - static:/app/dist
   dopami:
     build:
       target: prod
+  nginx:
+    build:
+      context: nginx/
+    restart: unless-stopped
+    depends_on:
+      - client
+      - dopami
+    # links:
+    #   - dopami
+    networks:
+      - main
+    ports:
+      - 9000:80
+    volumes:
+      - static:/static
+
+volumes:
+  static:
+    external: false

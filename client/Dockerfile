@@ -17,7 +17,10 @@ ENTRYPOINT npm run server
 # Production
 FROM base as prod
 WORKDIR /app
+# v ?
+VOLUME /app/dist
 COPY package*.json .
 RUN npm install
 COPY . .
 RUN npm ci --only=production
+ENTRYPOINT npm run prod

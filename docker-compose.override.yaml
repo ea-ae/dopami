@@ -3,6 +3,8 @@ services:
   client:
     build:
       target: dev
+    networks:
+      - main
     ports:
       - 9001:9001
     # volumes:
