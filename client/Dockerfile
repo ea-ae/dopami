@@ -8,17 +8,17 @@ ENV PATH /app/node_modules/.bin:$PATH
 # Development
 FROM base as dev
 WORKDIR /app
-COPY package*.json .
+COPY package*.json ./
 RUN npm install
 # temp below
-COPY . .
+COPY . ./
 ENTRYPOINT npm run server
 
 # Production
 FROM base as prod
 WORKDIR /app
 VOLUME /app/dist
-COPY package*.json .
+COPY package*.json ./
 RUN npm ci
-COPY . .
+COPY . ./
 RUN npm run prod
