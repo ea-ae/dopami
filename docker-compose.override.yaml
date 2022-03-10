@@ -17,3 +17,5 @@ services:
       - ./dopami:/app
       - /app/bin
       - /app/obj
+    ports:
+      - 9002:9002

@@ -12,8 +12,6 @@ services:
       - db
     networks:
       - main
-    ports:
-      - 9002:9002
   db:
     image: postgres:14.1-alpine
     restart: unless-stopped
