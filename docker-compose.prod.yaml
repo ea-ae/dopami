@@ -26,14 +26,14 @@ services:
       - static:/static:ro
       - acmechallenge:/var/www/certbot:ro
       - letsencrypt:/etc/letsencrypt:ro
-  # certbot:
-  #   image: certbot/certbot
-  #   volumes:
-  #     - acmechallenge:/var/www/certbot
-  #     - letsencrypt:/etc/letsencrypt
-  #   command: certonly --register-unsafely-without-email --agree-tos --webroot -w /var/www/certbot/ -d dopami.me
-  #   # command: certbot certonly -d dopami.me --dry-run
-  #   # command: certbot renew
+  certbot:
+    image: certbot/certbot
+    volumes:
+      - acmechallenge:/var/www/certbot
+      - letsencrypt:/etc/letsencrypt
+    # command: certonly --register-unsafely-without-email --agree-tos --webroot -w /var/www/certbot/ -d dopami.me
+    # command: certonly -d dopami.me --dry-run
+    command: renew
 
 volumes:
   static:
