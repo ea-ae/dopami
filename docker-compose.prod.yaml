@@ -17,7 +17,6 @@ services:
     depends_on:
       - client
       - dopami
-      - certbot
     networks:
       - main
     ports:
@@ -32,7 +31,7 @@ services:
     volumes:
       - acmechallenge:/var/www/certbot
       - letsencrypt:/etc/letsencrypt
-    command: certbot certonly --register-unsafely-without-email --agree-tos --webroot -w /var/www/certbot/ -d dopami.me
+    command: certonly --register-unsafely-without-email --agree-tos --webroot -w /var/www/certbot/ -d dopami.me
     # command: certbot certonly -d dopami.me --dry-run
     # command: certbot renew
 
