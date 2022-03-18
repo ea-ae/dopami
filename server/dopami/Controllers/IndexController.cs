@@ -7,7 +7,7 @@ namespace dopami.Controllers {
         [Route("")]
         [Route("index/")]
         public string Index() {
-            return HtmlEncoder.Default.Encode($"API Index");
+            return HtmlEncoder.Default.Encode("API Index");
         }
         
         [Route("print/{text=default}")]
