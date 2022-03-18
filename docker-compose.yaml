@@ -7,7 +7,7 @@ services:
       - dopami
   dopami:
     build:
-      context: dopami/
+      context: server/dopami/
     restart: unless-stopped
     depends_on:
       - db
