@@ -1,14 +1,13 @@
 # Common config
 services:
-  client:
-    build:
-      context: client/
-    depends_on:
-      - dopami
+  # client:
+  #   build:
+  #     context: client/
+  #   depends_on:
+  #     - dopami
   dopami:
     build:
-      context: server/dopami/
-    restart: unless-stopped
+      context: server/
     depends_on:
       - db
     networks:

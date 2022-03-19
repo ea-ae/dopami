@@ -2,12 +2,16 @@
 services:
   client:
     build:
+      context: client/
       target: prod
+    depends_on:
+      - dopami
     volumes:
       - static:/app/dist
   dopami:
     build:
       target: prod
+    restart: unless-stopped
   nginx:
     build:
       context: nginx/
