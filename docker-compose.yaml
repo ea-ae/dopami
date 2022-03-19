@@ -1,0 +1,25 @@
+# Common config
+services:
+  # client:
+  #   build:
+  #     context: client/
+  #   depends_on:
+  #     - dopami
+  dopami:
+    build:
+      context: server/
+    depends_on:
+      - db
+    networks:
+      - main
+  db:
+    image: postgres:14.1-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_PASSWORD: ${POSTGRES_PASS}
+    networks:
+      - main
+
+networks:
+  main:
+    driver: bridge

@@ -1,3 +1,5 @@
 # Custom
 .vs/
 node_modules/
+client/dist/
+client/devdist/

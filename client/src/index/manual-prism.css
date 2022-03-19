@@ -1,0 +1,80 @@
+/*/////////////////////////////////
+// Prism.js generated code
+// One Dark theme for prism.js
+// Based on Atom's One Dark theme: https://github.com/atom/atom/tree/master/packages/one-dark-syntax
+/////////////////////////////////*/
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: 0.5em 0;
+	overflow: auto;
+	border-radius: 0.3em;
+}
+
+.token.comment,
+.token.prolog,
+.token.cdata {
+	color: hsl(220, 10%, 40%);
+}
+
+.token.doctype,
+.token.punctuation,
+.token.entity {
+	color: hsl(220, 14%, 71%);
+}
+
+.token.attr-name,
+.token.class-name,
+.token.boolean,
+.token.constant,
+.token.number,
+.token.atrule {
+	color: hsl(29, 54%, 61%);
+}
+
+.token.keyword {
+	color: hsl(286, 60%, 67%);
+}
+
+.token.property,
+.token.tag,
+.token.symbol,
+.token.deleted,
+.token.important {
+	color: hsl(355, 65%, 65%);
+}
+
+.token.selector,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted,
+.token.regex,
+.token.attr-value,
+.token.attr-value > .token.punctuation {
+	color: hsl(95, 38%, 62%);
+}
+
+.token.variable,
+.token.operator,
+.token.function {
+	color: hsl(207, 82%, 66%);
+}
+
+.token.url {
+	color: hsl(187, 47%, 55%);
+}
+
+/* Plugin overrides */
+/* Selectors should have higher specificity than those in the plugins' default stylesheets */
+
+/* Show Invisibles plugin overrides */
+.token.token.tab:not(:empty):before,
+.token.token.cr:before,
+.token.token.lf:before,
+.token.token.space:before {
+	color: hsla(220, 14%, 71%, 0.15);
+	text-shadow: none;
+}
+
