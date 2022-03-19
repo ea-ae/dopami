@@ -12,4 +12,4 @@ VOLUME /app/dist
 COPY package*.json ./
 RUN npm ci
 COPY . ./
-RUN npm run prod
+CMD npm run prod
